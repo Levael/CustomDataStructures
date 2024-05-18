@@ -105,7 +105,7 @@ namespace CustomDataStructures
                 elementToIdMap.Remove(oldValue);
 
             if (newValue != null && attribute.CanBeKey && IsValidDictionaryKey(newValue.GetType()))
-                elementToIdMap[newValue] = id;            
+                elementToIdMap[newValue] = id;
 
 
             property.SetValue(data, newValue);
@@ -119,7 +119,7 @@ namespace CustomDataStructures
                 return false;
 
             // Check if type overrides GetHashCode
-            MethodInfo getHashCodeMethod = type.GetMethod("GetHashCode");
+            MethodInfo getHashCodeMethod = type.GetMethod("GetHashCode", Type.EmptyTypes);
             if (getHashCodeMethod == null || getHashCodeMethod.DeclaringType == typeof(object))
                 return false;
 
