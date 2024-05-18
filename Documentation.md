@@ -67,13 +67,11 @@ public class Program
 {
     public static void Main()
     {
-        var collection = new InterlinkedCollection<ExampleDataSet>();
-
-        var data1 = new ExampleDataSet { Name = "Alice", Age = 30, IsNormal = true };
-        var data2 = new ExampleDataSet { Name = "Bob", Age = 25, IsNormal = false };
-
-        collection.Add(data1);
-        collection.Add(data2);
+        var collection = new InterlinkedCollection<ExampleDataSet>()
+        {
+            new ExampleDataSet { Name = "Alice", Age = 30, IsNormal = true },
+            new ExampleDataSet { Name = "Bob", Age = 25, IsNormal = false }
+        };
 
         var retrievedByName = collection["Alice"];
         Console.WriteLine($"Retrieved by Name: {retrievedByName.Name}, Age: {retrievedByName.Age}, IsNormal: {retrievedByName.IsNormal}");
